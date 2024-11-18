@@ -15,5 +15,6 @@ def read():
 def read(transfer_id : int):
     return player_transfer_response(transfer_id)
 
-if __name__ == "__main__":
+""" if __name__ == "__main__":
     uvicorn.run(app, port=8000)
+ """
