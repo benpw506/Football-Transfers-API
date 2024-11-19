@@ -2,7 +2,6 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from scraper import player_transfer_response
-from dotenv import load_dotenv, dotenv_values
 
 load_dotenv()
 
@@ -11,7 +10,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins = [os.getenv("IP")],
+    allow_origins = ["*"],
     allow_credentials =True, 
     allow_methods = ["*"], 
     allow_headers=["*"]
