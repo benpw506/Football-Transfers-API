@@ -1,9 +1,22 @@
-
+import os
 from fastapi import FastAPI
-import uvicorn
+from fastapi.middleware.cors import CORSMiddleware
 from scraper import player_transfer_response
+from dotenv import load_dotenv, dotenv_values
+
+load_dotenv()
 
 app = FastAPI()
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins = [os.getenv("IP")],
+    allow_credientials =True, 
+    allow_methods = ["*"], 
+    allow_headers=["*"]
+    
+)
 
 @app.get("/")
 def read():
@@ -15,6 +28,3 @@ def read():
 def read(transfer_id : int):
     return player_transfer_response(transfer_id)
 
-""" if __name__ == "__main__":
-    uvicorn.run(app, port=8000)
- """
