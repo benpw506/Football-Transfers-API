@@ -3,8 +3,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from scraper import player_transfer_response
 
-load_dotenv()
-
 app = FastAPI()
 
 
